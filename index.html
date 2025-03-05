@@ -85,36 +85,26 @@
         const usernameInput = document.getElementById('roblox-username');
         const avatarPreview = document.getElementById('avatar-preview');
         const nextButton = document.getElementById('next-button');
+        const proxyUrl = 'https://cors-anywhere.herokuapp.com/'; // Прокси для обхода CORS
 
         async function fetchAvatar(username) {
             avatarPreview.innerHTML = 'Загрузка...';
             try {
-                // Шаг 1: Получаем User ID по имени
-                const userResponse = await fetch('https://users.roblox.com/v1/usernames/users', {
+                // Шаг 1: Получаем User ID через прокси
+                const userResponse = await fetch(proxyUrl + 'https://users.roblox.com/v1/usernames/users', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ usernames: [username], excludeBannedUsers: true })
                 });
-                if (!userResponse.ok) {
-                    throw new Error(`Ошибка ${userResponse.status}: ${userResponse.statusText}`);
-                }
+                if (!userResponse.ok) throw new Error(`Ошибка ${userResponse.status}`);
                 const userData = await userResponse.json();
-                console.log('Ответ от API (User):', userData); // Для отладки
-                if (!userData.data || userData.data.length === 0) {
-                    throw new Error('Пользователь не найден');
-                }
+                if (!userData.data.length) throw new Error('Пользователь не найден');
                 const userId = userData.data[0].id;
 
-                // Шаг 2: Получаем аватар
-                const avatarResponse = await fetch(`https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=420x420&format=Png&isCircular=false`);
-                if (!avatarResponse.ok) {
-                    throw new Error(`Ошибка ${avatarResponse.status}: ${avatarResponse.statusText}`);
-                }
+                // Шаг 2: Получаем аватар через прокси
+                const avatarResponse = await fetch(proxyUrl + `https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=420x420&format=Png&isCircular=false`);
+                if (!avatarResponse.ok) throw new Error(`Ошибка ${avatarResponse.status}`);
                 const avatarData = await avatarResponse.json();
-                console.log('Ответ от API (Avatar):', avatarData); // Для отладки
-                if (!avatarData.data || avatarData.data.length === 0 || !avatarData.data[0].imageUrl) {
-                    throw new Error('Аватар не доступен');
-                }
                 const avatarUrl = avatarData.data[0].imageUrl;
 
                 // Показываем аватар
