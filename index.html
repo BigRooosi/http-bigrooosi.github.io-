@@ -11,104 +11,16 @@
             background: #1a1a1a;
             color: white;
             text-align: center;
-            overflow-x: hidden;
-        }
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://wallpapers.com/images/featured/roblox-4k-in10cj1sl84hm3v4.jpg') no-repeat center/cover;
-            background-attachment: fixed;
-            height: 600px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            opacity: 0;
-            animation: fadeIn 1.5s ease forwards;
-        }
-        .hero h1 {
-            font-size: 70px;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background: rgba(147, 112, 219, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            color: #ffd700;
-            opacity: 0;
-            animation: slideUp 1s ease 0.5s forwards;
-        }
-        .about-section {
-            padding: 60px;
-            background: #2c1b47;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        .about-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .about-section h2 {
-            font-size: 36px;
-            color: #ffd700;
-            margin-bottom: 20px;
-        }
-        .about-section p {
-            font-size: 18px;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            line-height: 1.5;
-            color: #e6e6fa;
-        }
-        .character-section {
-            height: 400px;
-            background: #1a1a1a;
-            position: relative;
-            overflow: hidden;
-        }
-        .roblox-character {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 300px;
-            height: auto;
-            background: url('https://www.pngall.com/wp-content/uploads/5/Roblox-Character-PNG-Image.png') no-repeat center/contain;
-            animation: sway 3s ease-in-out infinite;
-            opacity: 0;
-            transition: opacity 0.8s ease;
-        }
-        .character-section.active .roblox-character {
-            opacity: 1;
-        }
-        @keyframes sway {
-            0% { transform: translate(-50%, -50%) rotate(5deg); }
-            50% { transform: translate(-50%, -50%) rotate(-5deg); }
-            100% { transform: translate(-50%, -50%) rotate(5deg); }
         }
         .form-section {
             padding: 60px;
             background: #9370db;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        .form-section.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .form-section h2 {
-            font-size: 28px;
-            color: #ffd700;
-            margin-bottom: 20px;
         }
         .form-container {
             display: flex;
-            flex-direction: row;
             gap: 20px;
             max-width: 800px;
             margin: 0 auto;
-            align-items: center;
         }
         .input-container {
             display: flex;
@@ -118,7 +30,6 @@
         }
         .avatar-container {
             flex: 1;
-            text-align: center;
         }
         .avatar-preview {
             width: 200px;
@@ -126,22 +37,18 @@
             background: #fff;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 14px;
+            color: #333;
         }
-        .avatar-preview:hover {
-            transform: scale(1.05);
-        }
-        input[type="text"], input[type="file"] {
+        input[type="text"] {
             padding: 10px;
             font-size: 16px;
             border: 2px solid #ffd700;
             border-radius: 5px;
-            background: #fff;
-            color: #333;
-            transition: transform 0.3s ease;
-        }
-        input[type="text"]:hover, input[type="file"]:hover {
-            transform: scale(1.05);
         }
         button {
             padding: 12px;
@@ -151,85 +58,14 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
         }
-        button:hover {
-            background: #e6c200;
-            transform: scale(1.1);
-        }
-        footer {
-            background: #1a1a1a;
-            padding: 40px;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s ease;
-        }
-        footer.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        footer h3 {
-            font-size: 24px;
-            color: #ffd700;
-            margin-bottom: 15px;
-        }
-        footer p {
-            font-size: 16px;
-            max-width: 800px;
-            margin: 0 auto 20px;
-            color: #e6e6fa;
-        }
-        .reviews {
-            font-style: italic;
-            color: #ccc;
-        }
-        .planet-section {
-            height: 150px;
-            background: #1a1a1a;
-            position: relative;
-            perspective: 1000px;
-            overflow: hidden;
-        }
-        .planet {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 300px;
-            height: 300px;
-            background: url('https://images.vexels.com/media/users/3/157970/isolated/preview/c156b4270aea292b9b335dd463ea17eb-earth-planet-icon-earth-icon.png') no-repeat center/cover;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(147, 112, 219, 0.8);
-            animation: rotate 8s linear infinite;
-            transform-style: preserve-3d;
-        }
-        @keyframes rotate {
-            from { transform: translate(-50%, 0) rotateY(0deg); }
-            to { transform: translate(-50%, 0) rotateY(360deg); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
         }
     </style>
 </head>
 <body>
-    <section class="hero">
-        <h1>RobuxMaster</h1>
-    </section>
-    <section class="about-section">
-        <h2>О нас</h2>
-        <p>Мы — команда RobuxMaster, твои надёжные помощники в мире Roblox! Уже несколько лет мы помогаем игрокам пополнять свои аккаунты быстро и безопасно.</p>
-        <h2>Почему мы?</h2>
-        <p>— Лучшие цены на рынке.<br>— Мгновенная обработка заявок.<br>— Поддержка 24/7 и честность на первом месте.</p>
-    </section>
-    <section class="character-section">
-        <div class="roblox-character"></div>
-    </section>
     <section class="form-section">
         <h2>Оставь заявку на пополнение!</h2>
         <div class="form-container">
@@ -240,42 +76,18 @@
                 <button id="next-button" disabled>Далее</button>
             </div>
             <div class="avatar-container">
-                <div id="avatar-preview" class="avatar-preview" style="background: #fff;"></div>
+                <div id="avatar-preview" class="avatar-preview">Введи ник</div>
             </div>
         </div>
     </section>
-    <footer>
-        <h3>RobuxMaster — это честно и надёжно</h3>
-        <p>Мы гордимся тем, что тысячи игроков доверяют нам свои пополнения. Никаких скрытых комиссий, только прозрачная работа!</p>
-        <p class="reviews">"Быстро и круто! Получил Robux за 5 минут!" — Alex2000</p>
-        <p class="reviews">"Лучший сервис, всегда выручают." — RobloxFan123</p>
-        <p>© 2025 RobuxMaster. Все права защищены.</p>
-    </footer>
-    <section class="planet-section">
-        <div class="planet"></div>
-    </section>
 
     <script>
-        const sections = document.querySelectorAll('.about-section, .character-section, .form-section, footer');
         const usernameInput = document.getElementById('roblox-username');
         const avatarPreview = document.getElementById('avatar-preview');
         const nextButton = document.getElementById('next-button');
 
-        // Проверка скролла для анимаций
-        function checkScroll() {
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (sectionTop < windowHeight * 0.8) {
-                    section.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', checkScroll);
-        checkScroll();
-
-        // Получение аватара по имени
         async function fetchAvatar(username) {
+            avatarPreview.innerHTML = 'Загрузка...';
             try {
                 // Шаг 1: Получаем User ID по имени
                 const userResponse = await fetch('https://users.roblox.com/v1/usernames/users', {
@@ -283,52 +95,62 @@
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ usernames: [username], excludeBannedUsers: true })
                 });
+                if (!userResponse.ok) {
+                    throw new Error(`Ошибка ${userResponse.status}: ${userResponse.statusText}`);
+                }
                 const userData = await userResponse.json();
-                if (!userData.data.length) {
-                    alert('Пользователь не найден!');
-                    return;
+                console.log('Ответ от API (User):', userData); // Для отладки
+                if (!userData.data || userData.data.length === 0) {
+                    throw new Error('Пользователь не найден');
                 }
                 const userId = userData.data[0].id;
 
-                // Шаг 2: Получаем полный аватар
+                // Шаг 2: Получаем аватар
                 const avatarResponse = await fetch(`https://thumbnails.roblox.com/v1/users/avatar?userIds=${userId}&size=420x420&format=Png&isCircular=false`);
+                if (!avatarResponse.ok) {
+                    throw new Error(`Ошибка ${avatarResponse.status}: ${avatarResponse.statusText}`);
+                }
                 const avatarData = await avatarResponse.json();
+                console.log('Ответ от API (Avatar):', avatarData); // Для отладки
+                if (!avatarData.data || avatarData.data.length === 0 || !avatarData.data[0].imageUrl) {
+                    throw new Error('Аватар не доступен');
+                }
                 const avatarUrl = avatarData.data[0].imageUrl;
 
-                // Отображаем аватар
+                // Показываем аватар
                 avatarPreview.style.background = `url(${avatarUrl}) no-repeat center/cover`;
-                nextButton.disabled = false; // Активируем кнопку
+                avatarPreview.innerHTML = '';
+                nextButton.disabled = false;
             } catch (error) {
+                avatarPreview.style.background = '#fff';
+                avatarPreview.innerHTML = error.message;
+                nextButton.disabled = true;
                 console.error('Ошибка:', error);
-                alert('Ошибка при загрузке аватара. Попробуй снова.');
             }
         }
 
-        // Обработка ввода имени
+        let timeout;
         usernameInput.addEventListener('input', () => {
+            clearTimeout(timeout);
             const username = usernameInput.value.trim();
             if (username) {
-                fetchAvatar(username);
+                timeout = setTimeout(() => fetchAvatar(username), 500);
             } else {
                 avatarPreview.style.background = '#fff';
+                avatarPreview.innerHTML = 'Введи ник';
                 nextButton.disabled = true;
             }
         });
 
-        // Переход к следующей форме при клике на аватар
         avatarPreview.addEventListener('click', () => {
             if (!nextButton.disabled) {
                 alert('Персонаж выбран! Переход к следующей форме...');
-                // Здесь можно добавить логику перехода к следующей форме
-                // Например, скрыть текущую форму и показать новую
             }
         });
 
-        // Кнопка "Далее"
         nextButton.addEventListener('click', () => {
             if (!nextButton.disabled) {
                 alert('Переход к следующей форме...');
-                // Здесь можно добавить логику перехода
             }
         });
     </script>
